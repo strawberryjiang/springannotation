@@ -3,6 +3,7 @@ package com.atguigu.config;
 import com.atguigu.bean.Color;
 import com.atguigu.bean.Person;
 import com.atguigu.condition.LinuxCondition;
+import com.atguigu.condition.MyImportSelector;
 import com.atguigu.condition.WindowsCondition;
 import org.springframework.context.annotation.*;
 
@@ -12,9 +13,19 @@ import org.springframework.context.annotation.*;
  * @create: 2020-09-05 19:59
  **/
 @Configuration
-@Conditional({LinuxCondition.class})
-@Import(Color.class)
+@Conditional({WindowsCondition.class})
+@Import({Color.class, MyImportSelector.class})
 public class MainConfig2 {
+
+    /**
+     * 给容器中增加组件的三种方式
+     * 1、使用@Service等注解
+     * 2、使用@Bean注解
+     * 3、使用@Import注解
+     *      3.1、@Import(Color.class)
+     *      3.2、ImportSelectors
+     * */
+
 
     @Lazy
     @Scope("prototype")
