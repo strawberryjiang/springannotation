@@ -10,13 +10,11 @@ import org.springframework.context.annotation.Configuration;
  * @create: 2020-09-05 19:59
  **/
 @Configuration
-
 public class MainConfig3 {
 
 
     @Bean("Car")
     public Car car() {
-
         return new Car();
     }
 

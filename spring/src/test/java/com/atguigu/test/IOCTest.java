@@ -4,6 +4,9 @@ import com.atguigu.bean.Person;
 import com.atguigu.config.MainConfig2;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+
+import java.util.Map;
 
 /**
  * @description:
@@ -36,5 +39,21 @@ public class IOCTest {
         for (String s : bb) {
             System.out.println(s);
         }
+    }
+
+
+    @Test
+    public void test03() {
+        //-Dos.name=linux
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
+        String[] names = applicationContext.getBeanNamesForType(Person.class);
+        ConfigurableEnvironment environment = applicationContext.getEnvironment();
+        String osName = environment.getProperty("os.name");
+        System.out.println(osName);
+        Map<String, Person> personMap = applicationContext.getBeansOfType(Person.class);
+        System.out.println(personMap);
+
+
+
     }
 }
