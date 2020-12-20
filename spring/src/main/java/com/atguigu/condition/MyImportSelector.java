@@ -12,6 +12,6 @@ public class MyImportSelector implements ImportSelector {
 
     //返回值就是要导入到容器中的全类名
     public String[] selectImports(AnnotationMetadata annotationMetadata) {
-        return null;
+        return new String[]{"com.atguigu.bean.Blue", "com.atguigu.bean.Yellow"};
     }
 }

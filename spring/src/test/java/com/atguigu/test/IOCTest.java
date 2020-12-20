@@ -18,7 +18,14 @@ public class IOCTest {
     @Test
     public void test01() {
         AnnotationConfigApplicationContext aa = new AnnotationConfigApplicationContext(MainConfig2.class);
-        printBeans(aa);
+//        printBeans(aa);
+
+        //工厂bean获取的是调用getObject创建的对象
+        Object bean1 = aa.getBean("colorFactoryBean");
+        //加上&前缀，获取的是bean工厂对象
+        Object bean2 = aa.getBean("&colorFactoryBean");
+        System.out.println(bean2.getClass());
+
     }
 
     private void printBeans(AnnotationConfigApplicationContext aa) {

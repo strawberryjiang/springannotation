@@ -1,8 +1,10 @@
 package com.atguigu.config;
 
 import com.atguigu.bean.Color;
+import com.atguigu.bean.ColorFactoryBean;
 import com.atguigu.bean.Person;
 import com.atguigu.condition.LinuxCondition;
+import com.atguigu.condition.MyImportBeanDefinitionRegistry;
 import com.atguigu.condition.MyImportSelector;
 import com.atguigu.condition.WindowsCondition;
 import org.springframework.context.annotation.*;
@@ -14,7 +16,7 @@ import org.springframework.context.annotation.*;
  **/
 @Configuration
 @Conditional({WindowsCondition.class})
-@Import({Color.class, MyImportSelector.class})
+@Import({Color.class, MyImportSelector.class, MyImportBeanDefinitionRegistry.class})
 public class MainConfig2 {
 
     /**
@@ -24,6 +26,8 @@ public class MainConfig2 {
      * 3、使用@Import注解
      *      3.1、@Import(Color.class)
      *      3.2、ImportSelectors
+     *      3.3、ImportBeanDefinitionRegistrar
+     * 4、使用spring提供的FactoryBean
      * */
 
 
@@ -46,5 +50,11 @@ public class MainConfig2 {
     @Bean("linux")
     public Person person02() {
         return new Person("linux", 48);
+    }
+
+
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return new ColorFactoryBean();
     }
 }
