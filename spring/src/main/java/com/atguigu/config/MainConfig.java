@@ -11,7 +11,9 @@ import org.springframework.context.annotation.Configuration;
  * @create: 2020-09-05 19:59
  **/
 @Configuration
-@ComponentScan(value = "com.atguigu")//指定扫描的包
+@ComponentScan(value = "com.atguigu",excludeFilters = {
+        @ComponentScan.Filter
+})//指定扫描的包
 public class MainConfig {
 
     //给容器中注入一个bean；类型为返回值类型，id默认是用方法名作为id
