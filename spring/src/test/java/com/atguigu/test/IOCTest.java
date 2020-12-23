@@ -24,7 +24,7 @@ public class IOCTest {
         Object bean1 = aa.getBean("colorFactoryBean");
         //加上&前缀，获取的是bean工厂对象
         Object bean2 = aa.getBean("&colorFactoryBean");
-        System.out.println(bean2.getClass());
+        System.out.println(bean1.getClass());
 
     }
 

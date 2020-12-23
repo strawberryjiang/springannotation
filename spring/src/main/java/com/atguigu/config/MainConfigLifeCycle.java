@@ -9,6 +9,7 @@ package com.atguigu.config;
 
 import com.atguigu.bean.Car;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -16,13 +17,17 @@ import org.springframework.context.annotation.Configuration;
  * 容器管理bean的生命周期
  *
  * 1、指定初始化和销毁方法：init-method和destroy-method
+ * 2、通过让bean实现InitializingBean实现初始化、通过实现DisposableBean来实现销毁
  * */
 @Configuration
+@ComponentScan("com.atguigu.bean")
 public class MainConfigLifeCycle {
-
 
     @Bean(initMethod = "init",destroyMethod = "destroy")
     public Car car(){
         return new Car();
     }
+
+
+
 }

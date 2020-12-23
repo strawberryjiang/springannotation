@@ -14,7 +14,7 @@ public class IOCTestLifeCycle {
     @Test
     public void test01(){
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfigLifeCycle.class);
-        System.out.println(context.getBean("car"));
+//        System.out.println(context.getBean("car"));
         context.close();
     }
 }
