@@ -1,6 +1,7 @@
 package com.atguigu.test;
 
 
+import com.atguigu.bean.Boss;
 import com.atguigu.bean.Car;
 import com.atguigu.config.MainConfigOfAutoWired;
 import org.junit.Test;
