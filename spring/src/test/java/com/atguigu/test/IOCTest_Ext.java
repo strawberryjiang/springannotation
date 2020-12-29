@@ -1,6 +1,6 @@
 package com.atguigu.test;
 
-import com.npu.ext.ExtConfig;
+import com.atguigu.ext.ExtConfig;
 import org.junit.Test;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

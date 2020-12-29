@@ -1,7 +1,7 @@
 package com.atguigu.config;
 
-import com.npu.aop.LogAspect;
-import com.npu.aop.MathCalculator;
+
+import com.atguigu.bean.MathCalculator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -175,10 +175,10 @@ public class MainConfigOfAOP {
         return new MathCalculator();
     }
 
-    //切面类加入容器中
-    @Bean
-    public LogAspect logAspect(){
-        return new LogAspect();
-    }
+//    //切面类加入容器中
+//    @Bean
+//    public LogAspect logAspect(){
+//        return new LogAspect();
+//    }
 
 }

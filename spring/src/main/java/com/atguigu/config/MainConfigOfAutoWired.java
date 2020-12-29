@@ -1,6 +1,6 @@
 package com.atguigu.config;
 
-import com.npu.dao.BookDao;
+import com.atguigu.dao.BookDao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -40,7 +40,7 @@ import org.springframework.context.annotation.Primary;
  *
  */
 @Configuration
-@ComponentScan({"com.npu.service","com.npu.dao","com.npu.controller","com.npu.bean"})
+@ComponentScan({"com.atguigu.service","com.atguigu.dao","com.atguigu.controller","com.atguigu.bean"})
 public class MainConfigOfAutoWired {
 
     @Primary

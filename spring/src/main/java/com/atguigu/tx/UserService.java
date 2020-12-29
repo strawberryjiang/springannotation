@@ -10,7 +10,7 @@ public class UserService {
     private UserDao userDao;
 
     public void insertUser(){
-        userDao.insert();
+//        userDao.insert();
         System.out.println("插入完成");
     }
 

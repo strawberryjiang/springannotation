@@ -12,9 +12,17 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class IOCTestLifeCycle {
 
     @Test
-    public void test01(){
+    public void test01() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfigLifeCycle.class);
-//        System.out.println(context.getBean("car"));
+        //System.out.println(context.getBean("car"));
+        /**
+         * car constructor....
+         * postProcessBeforeInitialization" + beanName + "=>" + car
+         * car init....
+         * postProcessAfterInitialization" + beanName + "=>" + car
+         * car destroy....
+         *
+         * */
         context.close();
     }
 }
