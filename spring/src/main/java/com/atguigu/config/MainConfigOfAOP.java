@@ -1,7 +1,7 @@
 package com.atguigu.config;
 
 
-import com.atguigu.bean.MathCalculator;
+import com.atguigu.aop.MathCalculator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 /**
  * AOP:【动态代理】
  *      指在程序运行期间动态的将某段代码切入到指定方法指定位置进行运行的编程模式
- *  1、导入aop模块
+ *  1、导入aop模块 spring的aop: spring-aspects
  *  2、定义一个业务逻辑类（MathCalculator），在业务逻辑运行的时候将日志进行打印（方法之前，方法运行结束，方法出现异常等）
  *  3、定义一个日志切面类（LogAspect），切面类里面的方法需要动态感知MathCalculator.div运行到哪里，然后执行
  *      通知方法：

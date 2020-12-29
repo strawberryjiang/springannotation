@@ -8,10 +8,11 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class IOCTest_AutoWired {
+
     AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfAutoWired.class);
+
     @Test
     public void test01(){
-//        printBeans(applicationContext);
         Boss bean = applicationContext.getBean(Boss.class);
         Car beanCar = applicationContext.getBean(Car.class);
         System.out.println(bean);

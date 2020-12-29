@@ -1,23 +1,22 @@
 package com.atguigu.dao;
 
+import com.atguigu.bean.Boss;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class BookDao {
 
-    private String lable = "1";
+    private Boss label ;
 
-    public String getLable() {
-        return lable;
+
+    public BookDao(Boss label) {
+        this.label =label ;
     }
 
-    public void setLable(String lable) {
-        this.lable = lable;
-    }
 
     @Override
     public String toString() {
-        return "BookDao [lable=" + lable + "]";
+        return "BookDao [label=" + label + "]";
     }
 
 }

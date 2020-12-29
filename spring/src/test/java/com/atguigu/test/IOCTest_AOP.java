@@ -1,6 +1,6 @@
 package com.atguigu.test;
 
-import com.atguigu.bean.MathCalculator;
+import com.atguigu.aop.MathCalculator;
 import com.atguigu.config.MainConfigOfAOP;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
