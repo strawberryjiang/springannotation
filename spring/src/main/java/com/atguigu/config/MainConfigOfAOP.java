@@ -1,6 +1,6 @@
 package com.atguigu.config;
 
-
+import com.atguigu.aop.LogAspect;
 import com.atguigu.aop.MathCalculator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,26 +8,26 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * AOP:【动态代理】
- *      指在程序运行期间动态的将某段代码切入到指定方法指定位置进行运行的编程模式
- *  1、导入aop模块 spring的aop: spring-aspects
- *  2、定义一个业务逻辑类（MathCalculator），在业务逻辑运行的时候将日志进行打印（方法之前，方法运行结束，方法出现异常等）
- *  3、定义一个日志切面类（LogAspect），切面类里面的方法需要动态感知MathCalculator.div运行到哪里，然后执行
- *      通知方法：
- *              前置通知(@Before)：logStart:在目标方法（div）运行之前运行 参数列表传入joinPoint可获取到方法的相关属性,且该参数必须放在第一个参数，否则无法识别
- *              后置通知(@After)：logEnd：在目标方法（div）运行之后运行,无论方法正常结束还是异常结束
- *              返回通知(@AfterReturning(returning可以指定封装返回值的参数）)：logReturn：在目标方法（div）正常返回之后运行
- *              异常通知(@AfterThrowing)：logException：在目标方法（div）出现异常以后运行
- *              环绕通知(@Around)：动态代理，手动推进目标方法运行（joinPoint.proceed())
- *  4、给切面类的目标方法标注何时何地运行（通知注解）
- *  5、将切面类和目标和业务逻辑类（目标方法所在类）都加入到容器中；
- *  6、告诉Spring哪个类是切面类（给切面类上加一个注解@Aspect）
- *  [7]、需要给配置类加一个@EnableAspectJAutoProxy【开启基于注解的aop模式】
- *      在spring中很多的@EnableXXX;
- *
+ * 指在程序运行期间动态的将某段代码切入到指定方法指定位置进行运行的编程模式
+ * 1、导入aop模块 spring的aop: spring-aspects
+ * 2、定义一个业务逻辑类（MathCalculator），在业务逻辑运行的时候将日志进行打印（方法之前，方法运行结束，方法出现异常等）
+ * 3、定义一个日志切面类（LogAspect），切面类里面的方法需要动态感知MathCalculator.div运行到哪里，然后执行
+ * 通知方法：
+ * 前置通知(@Before)：logStart:在目标方法（div）运行之前运行 参数列表传入joinPoint可获取到方法的相关属性,且该参数必须放在第一个参数，否则无法识别
+ * 后置通知(@After)：logEnd：在目标方法（div）运行之后运行,无论方法正常结束还是异常结束
+ * 返回通知(@AfterReturning(returning可以指定封装返回值的参数）)：logReturn：在目标方法（div）正常返回之后运行
+ * 异常通知(@AfterThrowing)：logException：在目标方法（div）出现异常以后运行
+ * 环绕通知(@Around)：动态代理，手动推进目标方法运行（joinPoint.proceed())
+ * 4、给切面类的目标方法标注何时何地运行（通知注解）
+ * 5、将切面类和目标和业务逻辑类（目标方法所在类）都加入到容器中；
+ * 6、告诉Spring哪个类是切面类（给切面类上加一个注解@Aspect）
+ * [7]、需要给配置类加一个@EnableAspectJAutoProxy【开启基于注解的aop模式】
+ * 在spring中很多的@EnableXXX;
+ * <p>
  * 三步：
- *      1、将业务逻辑组件和切面类都加入到容器中，告诉spring哪个是切面类（@Aspect）
- *      2、在切面类上的每一个通知方法标注通知注解，告诉spring何时何地运行（切入点表达式）
- *      3、开启基于注解的aop模式@EnableAspectJAutoProxy
+ * 1、将业务逻辑组件和切面类都加入到容器中，告诉spring哪个是切面类（@Aspect）
+ * 2、在切面类上的每一个通知方法标注通知注解，告诉spring何时何地运行（切入点表达式）
+ * 3、开启基于注解的aop模式@EnableAspectJAutoProxy
  **/
 
 /**
@@ -58,7 +58,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  *      1）传入主配置类，创建ioc容器
  *      2）注册配置类，调用refresh（）刷新容器
  *      3）registerBeanPostProcessors(beanFactory);注册bean的后置处理器来方便拦截bean的创建
- *              1、先获取ioc容器中已经定义了的需要创建对象的所有BeanPostProcessor beanFactory.getBeanNamesForType();
+ *              1、先获取ioc容器中已经定义了的需要创建对象的所有BeanPostProcessor: beanFactory.getBeanNamesForType();
  *              2、给容器中加别的BeanPostProcessor beanFactory.addBeanPostProcessor();
  *              3、对实现了PriorityOrdered接口和Ordered接口以及其它的BeanPostProcessor以进行分类
  *              4、优先注册实现了PriorityOrdered接口的BeanPostProcessor ，其次注册实现了Ordered接口的BeanPostProcessor，最后注册其它的
@@ -171,14 +171,15 @@ public class MainConfigOfAOP {
 
     //业务逻辑类加入容器中
     @Bean
-    public MathCalculator calculator(){
+    public MathCalculator calculator() {
         return new MathCalculator();
     }
 
-//    //切面类加入容器中
-//    @Bean
-//    public LogAspect logAspect(){
-//        return new LogAspect();
-//    }
+
+    //切面类加入容器中
+    @Bean
+    public LogAspect logAspect(){
+        return new LogAspect();
+    }
 
 }

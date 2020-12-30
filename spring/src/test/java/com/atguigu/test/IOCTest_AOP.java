@@ -12,7 +12,7 @@ public class IOCTest_AOP {
     @Test
     public void test01(){
         MathCalculator bean = applicationContext.getBean(MathCalculator.class);
-        bean.div(3,2);
+        bean.div(3,1);
     }
 
 
