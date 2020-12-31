@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 public class Car {
     private String name;
 
+    public Car() {
+        System.out.println("Car   .... Constructor");
+    }
+
     public void init() {
         System.out.println("car init....");
     }
