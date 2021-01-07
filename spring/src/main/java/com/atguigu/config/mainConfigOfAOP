@@ -46,7 +46,10 @@
  *    AspectJAwareAdvisorAutoProxyCreator
  *
  *    AnnotationAwareAspectJAutoProxyCreator.initBeanFactory(),即调用setBeanFactory时会调用这里的initBeanFactory()方法
- * 流程：
+ *
+
+
+ 流程：
  *      1）传入主配置类，创建ioc容器
  *      2）注册配置类，调用refresh（）刷新容器
  *      3）registerBeanPostProcessors(beanFactory);注册bean的后置处理器来方便拦截bean的创建

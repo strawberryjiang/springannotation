@@ -11,7 +11,7 @@ import java.io.IOException;
 public class MyTypeFilter implements TypeFilter {
 
     /**
-     * @param metadataReader 读取到当前正在扫描的类的信息
+     * @param metadataReader        读取到当前正在扫描的类的信息
      * @param metadataReaderFactory 可以获取到其它任何类信息的
      * @return
      * @throws IOException
@@ -31,7 +31,7 @@ public class MyTypeFilter implements TypeFilter {
 
         System.out.println(className);
 
-        if(className.contains("er")) return true;
+        if (className.contains("er")) return true;
 
 
         return false;
